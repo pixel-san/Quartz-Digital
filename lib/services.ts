@@ -14,6 +14,7 @@ export type Service = {
   comingSoon?: boolean;
   splineHero?: boolean;
   related: string[];
+  faqs?: { q: string; a: string }[];
 };
 
 export const SERVICES: Service[] = [
@@ -50,6 +51,12 @@ export const SERVICES: Service[] = [
       "Clients like Tinted Detailer launched with a Quartz Digital site and started converting local traffic within weeks — rated 5 stars on Google.",
     cta: { heading: "Ready for a website that works as hard as you do?", sub: "Get a ballpark price in under two minutes." },
     related: ["seo-services", "branding", "shopify-stores"],
+    faqs: [
+      { q: "How much does a website cost?", a: "It depends on page count and SEO scope. A single-page site starts lower than a full multi-page business site. Use the quote generator for a ballpark price in two minutes." },
+      { q: "How long does a website take to build?", a: "A single-page site is usually live within one to two weeks. Multi-page business sites typically take two to four weeks depending on content and revisions." },
+      { q: "Will my website work properly on mobile?", a: "Yes — every site is designed mobile-first, since most of your traffic will arrive on a phone, not shrunk down from a desktop layout afterwards." },
+      { q: "Do you include SEO with the build?", a: "Every site ships with SEO-ready foundations — clean structure, fast load times, proper metadata. Full SEO optimisation is available as an add-on for multi-page builds." },
+    ],
   },
   {
     slug: "seo-services",
@@ -85,6 +92,12 @@ export const SERVICES: Service[] = [
       "SEO is integrated into every website we ship — clients consistently rate the outcome 5 stars on Google.",
     cta: { heading: "Want to know what is holding your rankings back?", sub: "Start with a free quote — no obligation." },
     related: ["web-design", "social-media-marketing", "ai-receptionists"],
+    faqs: [
+      { q: "How long until SEO shows results?", a: "Local SEO improvements often show within weeks. Competitive rankings typically build over three to six months, and results compound the longer the system runs." },
+      { q: "Is SEO a one-off job or ongoing?", a: "SEO works best as a monthly system — technical health checks, content, and local signal maintenance that keep stacking results, not a one-time audit that fades." },
+      { q: "Do you handle Google Business Profile optimisation?", a: "Yes — full Google Business Profile setup and optimisation is included in our SEO optimisation package, alongside local citation and review strategy." },
+      { q: "Can you improve SEO on a site you didn't build?", a: "Yes. We regularly audit and improve existing websites — technical fixes, on-page structure, and content — without needing to rebuild the whole site." },
+    ],
   },
   {
     slug: "branding",
@@ -117,6 +130,11 @@ export const SERVICES: Service[] = [
       "Brands we design carry through to websites, social, and print — one consistent system clients describe as 'clean and professional'.",
     cta: { heading: "Ready to look like the market leader?", sub: "Custom scope, custom price — book a free strategy call." },
     related: ["web-design", "social-media-management"],
+    faqs: [
+      { q: "What's included in a branding project?", a: "Identity design, logo systems (primary, secondary, and icon marks), colour and typography, and brand guidelines so the system stays consistent everywhere it's used." },
+      { q: "Why isn't branding priced in the quote generator?", a: "Branding scope varies too much project to project — a logo refresh and a full identity system are very different jobs. We scope it properly on a free strategy call so the price is accurate." },
+      { q: "Do you design just a logo, or the full identity?", a: "Both are available. Most clients get the most value from a full identity system, since a logo alone rarely holds up consistently across a website, social, and print." },
+    ],
   },
   {
     slug: "social-media-management",
@@ -149,6 +167,11 @@ export const SERVICES: Service[] = [
       "We manage pages for Australian businesses that needed presence without the workload — freeing owners to do the work only they can do.",
     cta: { heading: "Want your pages handled properly?", sub: "Custom scope, custom price — book a free strategy call." },
     related: ["social-media-marketing", "branding"],
+    faqs: [
+      { q: "Which platforms do you manage?", a: "Instagram, Facebook, and LinkedIn are the most common — the exact mix depends on where your customers actually spend time." },
+      { q: "How often do you post?", a: "Cadence is set per client based on your industry and goals, typically several times a week, with a content calendar planned in advance so nothing gets missed." },
+      { q: "Do I need to supply the content myself?", a: "No — we plan and create the content within your brand system. You're welcome to send through job photos or updates, but it's not required." },
+    ],
   },
   {
     slug: "social-media-marketing",
@@ -181,6 +204,11 @@ export const SERVICES: Service[] = [
       "Our campaigns connect directly to quote and WhatsApp funnels — every dollar accountable to a lead.",
     cta: { heading: "Ready for social that pays for itself?", sub: "Custom scope, custom price — book a free strategy call." },
     related: ["social-media-management", "seo-services"],
+    faqs: [
+      { q: "What's the difference between social media management and marketing?", a: "Management keeps your pages active with regular content. Marketing adds strategy, paid campaigns, and conversion tracking aimed specifically at generating leads, not just engagement." },
+      { q: "Do you run paid ads as part of this?", a: "Yes — paid campaigns are combined with organic content into one strategy, so ad spend and organic reach work toward the same goal rather than competing." },
+      { q: "How do you track which posts actually produce leads?", a: "Campaigns are wired into your quote generator, forms, and WhatsApp, so every enquiry can be traced back to the exact post or ad that produced it." },
+    ],
   },
   {
     slug: "ai-receptionists",
@@ -215,6 +243,12 @@ export const SERVICES: Service[] = [
     cta: { heading: "Stop missing customers this month", sub: "Get a ballpark price in under two minutes." },
     splineHero: true,
     related: ["web-design", "seo-services"],
+    faqs: [
+      { q: "Does the AI receptionist sound robotic?", a: "No — it's trained on your specific business, services, and tone so conversations feel natural, not scripted." },
+      { q: "What happens if a customer needs to speak to a real person?", a: "Complex or urgent enquiries escalate straight to you. The AI handles the routine questions and bookings; you handle what genuinely needs a human." },
+      { q: "Can it actually book appointments into my calendar?", a: "Yes — it's connected directly to your calendar so customers get booked in without any back-and-forth messaging." },
+      { q: "How is this priced?", a: "AI receptionists are scoped individually since it depends on your call volume and integrations. Start a quote and we'll send an exact price within 24 hours." },
+    ],
   },
   {
     slug: "shopify-stores",
@@ -247,6 +281,11 @@ export const SERVICES: Service[] = [
       "Our builds pair ecommerce best practice with the same conversion-first system behind every Quartz Digital site.",
     cta: { heading: "Ready to open a store that converts?", sub: "Get a ballpark price in under two minutes." },
     related: ["web-design", "seo-services", "ads-management"],
+    faqs: [
+      { q: "How is Shopify store pricing worked out?", a: "Pricing scales with your product count — the quote generator has a slider so you can see a ballpark instantly based on your actual catalogue size." },
+      { q: "Can you migrate my existing store?", a: "Yes, existing product data, images, and customer records can be migrated into a new, properly structured build." },
+      { q: "Who manages the store after launch?", a: "You can choose self-managed handover or one of our ongoing care plans, which include updates, support, and conversion improvements." },
+    ],
   },
   {
     slug: "ads-management",

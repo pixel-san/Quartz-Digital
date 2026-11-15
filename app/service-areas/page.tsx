@@ -7,11 +7,11 @@ import { AREA_PAGES } from "@/lib/areas";
 export const metadata: Metadata = {
   title: "Service Areas | Web Design and SEO Across Australia — Quartz Digital",
   description:
-    "Quartz Digital serves businesses across Melbourne, Sydney, Brisbane and Australia-wide — with web design and SEO systems built for local and national growth.",
+    "Quartz Digital serves businesses across Melbourne, Sydney, Brisbane, Perth, Adelaide, the Gold Coast and Australia-wide — with web design and SEO systems built for local and national growth.",
   alternates: { canonical: "/service-areas" },
 };
 
-const CITIES = ["Melbourne", "Sydney", "Brisbane"] as const;
+const CITIES = Array.from(new Set(AREA_PAGES.map((a) => a.city)));
 
 export default function ServiceAreasPage() {
   return (
@@ -32,7 +32,7 @@ export default function ServiceAreasPage() {
 
       <section className="py-12">
         <div className="mx-auto max-w-[1100px] px-5">
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {CITIES.map((city, i) => {
               const pages = AREA_PAGES.filter((a) => a.city === city);
               return (

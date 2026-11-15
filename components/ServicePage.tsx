@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
 import { JsonLd } from "@/components/JsonLd";
+import { FAQAccordion } from "@/components/FAQAccordion";
 import { SplineScene } from "@/components/ui/spline-scene";
 import { SERVICES, type Service } from "@/lib/services";
 import { SITE } from "@/lib/site";
@@ -27,6 +28,19 @@ export function ServicePage({ service }: { service: Service }) {
           url: `${SITE.url}/${service.slug}`,
         }}
       />
+      {service.faqs && service.faqs.length > 0 && (
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: service.faqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }}
+        />
+      )}
 
       {/* Hero */}
       <section className="relative flex min-h-[70vh] items-center overflow-hidden pt-28 pb-16">
@@ -152,8 +166,24 @@ export function ServicePage({ service }: { service: Service }) {
             </div>
           </section>
 
+          {/* FAQ */}
+          {service.faqs && service.faqs.length > 0 && (
+            <section className="py-16">
+              <div className="mx-auto max-w-[800px] px-5">
+                <Reveal>
+                  <h2 className="text-3xl font-bold tracking-tighter text-cream sm:text-4xl">
+                    Frequently asked
+                  </h2>
+                </Reveal>
+                <Reveal delay={0.05} className="mt-10">
+                  <FAQAccordion items={service.faqs} />
+                </Reveal>
+              </div>
+            </section>
+          )}
+
           {/* Related services (internal linking) */}
-          <section className="pb-16">
+          <section className="pb-16 border-t border-line pt-16">
             <div className="mx-auto max-w-[1100px] px-5">
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted">Also explore</p>
               <div className="mt-5 flex flex-wrap gap-3">

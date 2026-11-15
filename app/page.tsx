@@ -56,12 +56,12 @@ export default function HomePage() {
         />
         <div className="relative z-10 mx-auto w-full max-w-[1100px] px-5 pt-28 pb-16 text-center">
           <HeroTitle />
-          <Reveal delay={0.1}>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">
-              {SITE.description}
-            </p>
-          </Reveal>
-          <Reveal delay={0.2} className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          {/* Above-the-fold copy is plain server-rendered markup (no opacity-0
+              entrance) so it paints immediately and counts as LCP early. */}
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">
+            {SITE.description}
+          </p>
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="/quote"
               className="rounded-full bg-cream px-8 py-3.5 text-base font-semibold text-ink transition-colors hover:bg-white"
@@ -71,7 +71,7 @@ export default function HomePage() {
             <Link href="/results" className="btn-outline">
               View Results
             </Link>
-          </Reveal>
+          </div>
         </div>
       </section>
 

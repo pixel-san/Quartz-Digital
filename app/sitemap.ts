@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SERVICES } from "@/lib/services";
 import { AREA_PAGES } from "@/lib/areas";
+import { BLOG_POSTS } from "@/lib/blog";
 import { SITE } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -34,6 +35,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE.url}/${a.slug}`,
       lastModified: now,
       priority: 0.8,
+    })),
+    ...BLOG_POSTS.map((p) => ({
+      url: `${SITE.url}/blog/${p.slug}`,
+      lastModified: new Date(p.publishedAt),
+      priority: 0.6,
     })),
   ];
 }

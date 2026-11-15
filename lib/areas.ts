@@ -135,6 +135,156 @@ export const AREA_PAGES: AreaPage[] = [
       },
     ],
   },
+  {
+    slug: "web-design-perth",
+    city: "Perth",
+    service: "Web Design",
+    metaTitle: "Web Design Perth | Websites Built to Convert — Quartz Digital",
+    metaDescription:
+      "Perth web design for businesses that want more than a brochure site. Fast, mobile-first, conversion-focused websites. Get a free quote in two minutes.",
+    h1: "Web design Perth businesses use to win more work",
+    intro:
+      "Perth's economy runs on resources, trades, and local services — and buyers in this market decide fast. We build websites for Perth businesses that load instantly, prove credibility in seconds, and turn a glance into an enquiry.",
+    sections: [
+      {
+        title: "Built for a fast-deciding market",
+        body: "From Fremantle tradies to Osborne Park suppliers, Perth buyers don't linger — they compare two or three options and call one. Your site needs to win that first ten seconds with clarity, not clutter.",
+      },
+      {
+        title: "Time-zone-friendly, still Australian quality",
+        body: "Perth runs hours ahead of the east coast, so slow turnarounds cost you real business days. We keep communication tight and builds moving, without cutting corners on design or code quality.",
+      },
+      {
+        title: "Local SEO built in from day one",
+        body: "Every Perth build ships with the technical foundations — speed, structure, schema — that local 'near me' searches depend on, so your site starts earning traffic the day it launches.",
+      },
+    ],
+  },
+  {
+    slug: "seo-perth",
+    city: "Perth",
+    service: "SEO",
+    metaTitle: "SEO Perth | Local Rankings That Bring In Customers — Quartz Digital",
+    metaDescription:
+      "Perth SEO services: local search, Google Business Profile optimisation, and technical SEO that get Perth businesses found first. Free SEO quote.",
+    h1: "SEO that gets Perth businesses found first",
+    intro:
+      "Perth has less search competition than the eastern capitals — which means a properly built SEO system can win visible ground faster here than almost anywhere else in Australia. We build that system.",
+    sections: [
+      {
+        title: "An easier market to lead in",
+        body: "With fewer businesses investing properly in SEO, Perth is one of the fastest markets in the country to move from page three to the map pack — if the technical and local foundations are done right.",
+      },
+      {
+        title: "Local SEO for Perth and the suburbs",
+        body: "From Joondalup to Rockingham, we structure your Google Business Profile, reviews, and service-area content around where Perth customers actually search, not just the CBD.",
+      },
+      {
+        title: "Consistent monthly progress",
+        body: "SEO compounds. Monthly optimisation cycles — content, technical health, and local signals — keep stacking results while competitors who did a one-off audit fall behind.",
+      },
+    ],
+  },
+  {
+    slug: "web-design-adelaide",
+    city: "Adelaide",
+    service: "Web Design",
+    metaTitle: "Web Design Adelaide | Conversion-Focused Websites — Quartz Digital",
+    metaDescription:
+      "Adelaide web design for local businesses and startups. Fast, professional, SEO-ready websites that turn visitors into enquiries. Free quote in two minutes.",
+    h1: "Web design that helps Adelaide businesses stand out",
+    intro:
+      "Adelaide's business community is tight-knit — word of mouth matters, but so does what people find when they search you up before calling. We build websites that back up your reputation the moment someone looks you up.",
+    sections: [
+      {
+        title: "Professional presence for a relationship-driven market",
+        body: "In Adelaide, referrals open the door — your website closes it. A clean, credible site reassures a referred customer they made the right call before they've even spoken to you.",
+      },
+      {
+        title: "Competing with bigger cities, without the big-city price",
+        body: "Adelaide businesses shouldn't have to accept a lower design standard because the market is smaller. We build to the same conversion-first standard we use in Sydney and Melbourne.",
+      },
+      {
+        title: "SEO-ready from the first build",
+        body: "Fast load times, clean structure, and local SEO foundations are standard on every Adelaide build — so you start climbing local search results from launch, not six months later.",
+      },
+    ],
+  },
+  {
+    slug: "seo-adelaide",
+    city: "Adelaide",
+    service: "SEO",
+    metaTitle: "SEO Adelaide | Local Search Rankings — Quartz Digital",
+    metaDescription:
+      "Adelaide SEO services covering local search, Google Business Profile optimisation, and technical SEO. Get found before your competitors. Free quote.",
+    h1: "SEO that puts Adelaide businesses ahead of the search",
+    intro:
+      "Adelaide searches are winnable — most local competitors haven't invested in proper SEO. We build the local and technical foundations that let you take that ground and hold it.",
+    sections: [
+      {
+        title: "Win the map pack in a less crowded field",
+        body: "With fewer Adelaide businesses running structured SEO, a properly optimised Google Business Profile and local content strategy can move you into the top three results faster than in bigger capitals.",
+      },
+      {
+        title: "Suburb-by-suburb targeting",
+        body: "From the CBD to Norwood and Glenelg, we build content and local signals around the specific areas you actually serve — not just a generic 'Adelaide' keyword that's too broad to convert.",
+      },
+      {
+        title: "SEO as a system, not a one-off",
+        body: "Rankings hold up because we keep working them — monthly technical checks, content, and local signal maintenance that compound instead of fading after the first quarter.",
+      },
+    ],
+  },
+  {
+    slug: "web-design-gold-coast",
+    city: "Gold Coast",
+    service: "Web Design",
+    metaTitle: "Web Design Gold Coast | Websites Built to Convert — Quartz Digital",
+    metaDescription:
+      "Gold Coast web design for tourism, trades, and local businesses. Fast, mobile-first websites that turn visitors into bookings and enquiries. Free quote.",
+    h1: "Web design built for how the Gold Coast does business",
+    intro:
+      "Tourism, trades, hospitality, fitness — Gold Coast businesses live or die on how quickly a visitor can find what they need and book it. We build websites engineered for exactly that moment.",
+    sections: [
+      {
+        title: "Built for a mobile-first, on-the-go audience",
+        body: "Whether it's a tourist booking an experience or a local booking a tradie, Gold Coast searches happen on phones, often in a hurry. Every build we ship is mobile-first, not mobile-adjusted.",
+      },
+      {
+        title: "Presentation that matches the destination",
+        body: "The Gold Coast sells an experience before it sells anything else. Your site needs the same polish as the beachfront it sits behind — premium, fast, and visually confident.",
+      },
+      {
+        title: "SEO built in for seasonal and local search",
+        body: "From peak-season tourism searches to year-round local trade enquiries, we build the technical and local SEO foundations that keep you visible whichever type of customer is searching.",
+      },
+    ],
+  },
+  {
+    slug: "seo-gold-coast",
+    city: "Gold Coast",
+    service: "SEO",
+    metaTitle: "SEO Gold Coast | Local and Seasonal Search Rankings — Quartz Digital",
+    metaDescription:
+      "Gold Coast SEO services: local search, Google Business Profile, and technical SEO built for tourism and trade seasonality. Free SEO quote in two minutes.",
+    h1: "SEO built for the Gold Coast's seasonal search patterns",
+    intro:
+      "Search demand on the Gold Coast swings with the seasons — tourism peaks, trade demand shifts, and local competition changes month to month. We build SEO systems that keep you visible through all of it.",
+    sections: [
+      {
+        title: "Ranking through the seasonal swings",
+        body: "A Gold Coast SEO strategy that only accounts for peak season leaves you invisible the rest of the year. We build content and local signals that hold rankings across the full calendar.",
+      },
+      {
+        title: "Local SEO from Southport to Coolangatta",
+        body: "The Gold Coast stretches across dozens of distinct suburbs and towns. We structure your Google Business Profile and local content around the specific areas your customers actually search from.",
+      },
+      {
+        title: "Monthly optimisation that compounds",
+        body: "Consistent technical health checks, content updates, and local signal maintenance mean your rankings keep improving instead of drifting back down between seasons.",
+      },
+    ],
+  },
 ];
 
 export function getArea(slug: string) {

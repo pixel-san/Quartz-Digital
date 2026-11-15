@@ -84,6 +84,16 @@ export function Footer() {
               </li>
               <li>
                 <a
+                  href={SITE.googleMaps}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted hover:text-cream transition-colors"
+                >
+                  Find us on Google Maps
+                </a>
+              </li>
+              <li>
+                <a
                   href={SITE.googleReviews}
                   target="_blank"
                   rel="noopener noreferrer"

@@ -17,14 +17,6 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description: SITE.description,
-  keywords: [
-    "web design australia",
-    "seo services",
-    "digital agency",
-    "shopify development",
-    "ai receptionists",
-    "branding agency",
-  ],
   openGraph: {
     type: "website",
     siteName: SITE.name,
@@ -62,16 +54,23 @@ export default function RootLayout({
         <JsonLd
           data={{
             "@context": "https://schema.org",
-            "@type": "LocalBusiness",
+            "@type": ["LocalBusiness", "ProfessionalService"],
             "@id": `${SITE.url}/#business`,
             name: SITE.name,
             description: SITE.positioning,
             url: SITE.url,
             telephone: SITE.phone,
             image: `${SITE.url}/logo.jpg`,
-            address: { "@type": "PostalAddress", addressCountry: "AU" },
+            logo: `${SITE.url}/logo.jpg`,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Hoppers Crossing",
+              addressRegion: "VIC",
+              addressCountry: "AU",
+            },
             areaServed: ["Australia", "Worldwide"],
-            sameAs: [SITE.instagram, SITE.googleReviews],
+            hasMap: SITE.googleMaps,
+            sameAs: [SITE.instagram, SITE.googleMaps, SITE.googleReviews],
             aggregateRating: {
               "@type": "AggregateRating",
               ratingValue: "5",

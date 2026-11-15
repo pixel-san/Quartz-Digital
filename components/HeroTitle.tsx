@@ -37,46 +37,52 @@ export function HeroTitle() {
     t < 0 ? 0 : Math.floor(t / 3) + (t % 3 > i ? 1 : 0);
 
   return (
-    <h1
-      aria-label="Build. Rank. Scale."
-      className="mx-auto max-w-4xl text-5xl font-bold tracking-tighter sm:text-7xl lg:text-8xl"
-    >
-      {WORDS.map((pair, i) => {
-        const isActive = t >= 0 && t % 3 === i;
-        const current = pair[idx(i) % 2];
-        const next = pair[(idx(i) + 1) % 2];
-        const wordCls = `block text-center leading-[1.18] transition-colors duration-500 ${
-          isActive ? "text-quartz-bright" : "text-cream"
-        }`;
-        return (
-          <motion.span
-            key={i}
-            aria-hidden="true"
-            className="mx-[0.08em] inline-block h-[1.18em] overflow-hidden align-bottom"
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.7,
-              delay: 0.15 + i * 0.18,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-          >
+    <>
+      {/* Real H1: clean static text for SEO and screen readers.
+          Visually hidden — the animated version below is what's shown. */}
+      <h1 className="sr-only">Build. Rank. Scale.</h1>
+
+      {/* Decorative, animated duplicate — hidden from the accessibility
+          tree and never indexed as heading text. */}
+      <div
+        aria-hidden="true"
+        className="mx-auto max-w-4xl text-5xl font-bold tracking-tighter sm:text-7xl lg:text-8xl"
+      >
+        {WORDS.map((pair, i) => {
+          const isActive = t >= 0 && t % 3 === i;
+          const current = pair[idx(i) % 2];
+          const next = pair[(idx(i) + 1) % 2];
+          const wordCls = `block text-center leading-[1.18] transition-colors duration-500 ${
+            isActive ? "text-quartz-bright" : "text-cream"
+          }`;
+          return (
             <motion.span
-              className="block will-change-transform"
-              animate={{ y: isActive ? "-50%" : "0%" }}
-              transition={
-                isActive
-                  ? { duration: 0.5, ease: [0.16, 1, 0.3, 1] }
-                  : { duration: 0 }
-              }
+              key={i}
+              className="mx-[0.08em] inline-block h-[1.18em] overflow-hidden align-bottom"
+              initial={{ opacity: 1, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.7,
+                delay: 0.15 + i * 0.18,
+                ease: [0.16, 1, 0.3, 1],
+              }}
             >
-              <span className={wordCls}>{current}</span>
-   
-              <span className={wordCls}>{next}</span>
+              <motion.span
+                className="block will-change-transform"
+                animate={{ y: isActive ? "-50%" : "0%" }}
+                transition={
+                  isActive
+                    ? { duration: 0.5, ease: [0.16, 1, 0.3, 1] }
+                    : { duration: 0 }
+                }
+              >
+                <span className={wordCls}>{current}</span>
+                <span className={wordCls}>{next}</span>
+              </motion.span>
             </motion.span>
-          </motion.span>
-        );
-      })}
-    </h1>
+          );
+        })}
+      </div>
+    </>
   );
 }

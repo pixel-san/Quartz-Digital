@@ -8,7 +8,7 @@ type Review = { name: string; stars: number; text: string };
 
 function Stars({ count }: { count: number }) {
   return (
-    <div className="flex gap-0.5" aria-label={`${count} out of 5 stars`}>
+    <div className="flex gap-0.5" role="img" aria-label={`${count} out of 5 stars`}>
       {Array.from({ length: count }).map((_, i) => (
         <svg key={i} viewBox="0 0 24 24" className="h-4 w-4 fill-[#fbbc04]" aria-hidden="true">
           <path d="M12 2l2.94 6.34 6.94.8-5.14 4.73 1.38 6.85L12 17.27l-6.12 3.45 1.38-6.85L2.12 9.14l6.94-.8L12 2z" />
