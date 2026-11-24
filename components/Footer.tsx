@@ -118,7 +118,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col gap-3 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-muted">
-            © {new Date().getFullYear()} Quartz Digital. All rights reserved.
+            © {new Date().getFullYear()} Quartz Digital · Hoppers Crossing, VIC 3029 · Serving Melbourne and Australia-wide
           </p>
           <div className="flex gap-5">
             <Link href="/privacy-policy" className="text-xs text-muted hover:text-cream transition-colors">

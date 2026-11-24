@@ -18,9 +18,9 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "how-much-does-a-website-cost-in-australia",
     title: "How Much Does a Website Cost in Australia? (2026 Pricing Guide)",
-    metaTitle: "How Much Does a Website Cost in Australia? 2026 Pricing Guide — Quartz Digital",
+    metaTitle: "How Much Does a Website Cost in Australia? (2026)",
     metaDescription:
-      "A straight answer on Australian website costs in 2026: single-page sites, multi-page business sites, Shopify stores, and what actually drives the price up or down.",
+      "A plain answer on Australian website costs in 2026: single-page sites, business sites, Shopify stores, and what pushes the price up or down.",
     excerpt:
       "A straight answer on what websites actually cost in Australia right now — no vague 'it depends' non-answers.",
     publishedAt: "2026-08-04",
@@ -77,7 +77,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "why-isnt-my-business-showing-up-on-google-maps",
     title: "Why Isn't My Business Showing Up on Google Maps?",
-    metaTitle: "Why Isn't My Business Showing Up on Google Maps? — Quartz Digital",
+    metaTitle: "Why Isn't My Business on Google Maps? | Quartz Digital",
     metaDescription:
       "The most common reasons Australian businesses don't appear in the Google Maps 'map pack' — and the exact fixes for each one.",
     excerpt:
@@ -140,7 +140,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "website-vs-facebook-page-for-tradies",
     title: "Website vs Facebook Page: What Actually Gets Tradies More Customers?",
-    metaTitle: "Website vs Facebook Page for Tradies — What Actually Gets You More Customers",
+    metaTitle: "Website vs Facebook Page for Tradies | Quartz Digital",
     metaDescription:
       "A straight comparison of running your trade business on a Facebook page versus a proper website — and why relying on one alone is costing you jobs.",
     excerpt:

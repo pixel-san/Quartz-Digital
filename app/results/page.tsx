@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   description:
     "Real outcomes from Quartz Digital builds: client case studies, live websites, and 5-star reviewed projects for Australian businesses.",
   alternates: { canonical: "/results" },
+  openGraph: { title: "Results and Case Studies | Quartz Digital", description:
+    "Real outcomes from Quartz Digital builds: client case studies, live websites, and 5-star reviewed projects for Australian businesses.", url: "/results", images: ["/og.jpg"] },
 };
 
 const CASES = [

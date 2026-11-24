@@ -1,3 +1,8 @@
+import { SUBURB_PAGES } from "./suburbs";
+import { MORE_SUBURB_PAGES } from "./suburbs-more";
+import { TOPIC_PAGES } from "./topics";
+import { NEW_SUBURB_PAGES } from "./suburbs-new";
+
 export type AreaPage = {
   slug: string;
   city: string;
@@ -7,14 +12,29 @@ export type AreaPage = {
   h1: string;
   intro: string;
   sections: { title: string; body: string }[];
+  /** true for suburb pages (Tarneit and surrounds) */
+  suburb?: boolean;
+  /** true for topic pages (not tied to a place) */
+  topic?: boolean;
+  /** overrides the small label above the H1 */
+  eyebrow?: string;
+  /** slugs of related pages (services, topics, areas) shown as links */
+  related?: string[];
+  /** grouping for the service-areas page */
+  region?: string;
+  /** longer local copy shown under the main sections */
+  extra?: string[];
+  faqs?: { q: string; a: string }[];
+  /** slugs of nearby suburb pages to link to */
+  nearby?: string[];
 };
 
-export const AREA_PAGES: AreaPage[] = [
+const CITY_PAGES: AreaPage[] = [
   {
     slug: "web-design-melbourne",
     city: "Melbourne",
     service: "Web Design",
-    metaTitle: "Web Design Melbourne | Conversion-Focused Websites — Quartz Digital",
+    metaTitle: "Web Design Melbourne | Quartz Digital",
     metaDescription:
       "Melbourne web design that ranks and converts. Fast, SEO-ready websites for Melbourne businesses — from tradies to startups. Get a free quote today.",
     h1: "Web design Melbourne businesses trust to convert",
@@ -39,7 +59,7 @@ export const AREA_PAGES: AreaPage[] = [
     slug: "seo-melbourne",
     city: "Melbourne",
     service: "SEO",
-    metaTitle: "SEO Melbourne | Local SEO and Google Rankings — Quartz Digital",
+    metaTitle: "SEO Melbourne | Local SEO and Rankings | Quartz Digital",
     metaDescription:
       "Melbourne SEO services that put your business in the map pack and on page one. Local SEO, Google Business Profile, and monthly optimisation. Free quote.",
     h1: "SEO that puts Melbourne businesses on page one",
@@ -64,7 +84,7 @@ export const AREA_PAGES: AreaPage[] = [
     slug: "web-design-sydney",
     city: "Sydney",
     service: "Web Design",
-    metaTitle: "Web Design Sydney | High-Converting Business Websites — Quartz Digital",
+    metaTitle: "Web Design Sydney | Quartz Digital",
     metaDescription:
       "Sydney web design built to convert. Premium, fast, SEO-ready websites for Sydney businesses and startups. Get a ballpark quote in two minutes.",
     h1: "Web design for Sydney businesses that expect results",
@@ -114,7 +134,7 @@ export const AREA_PAGES: AreaPage[] = [
     slug: "web-design-brisbane",
     city: "Brisbane",
     service: "Web Design",
-    metaTitle: "Web Design Brisbane | Websites That Win Local Customers — Quartz Digital",
+    metaTitle: "Web Design Brisbane | Quartz Digital",
     metaDescription:
       "Brisbane web design for growing businesses. Conversion-focused, SEO-ready websites that turn Brisbane searches into enquiries. Free quote in two minutes.",
     h1: "Web design that grows Brisbane businesses",
@@ -139,7 +159,7 @@ export const AREA_PAGES: AreaPage[] = [
     slug: "web-design-perth",
     city: "Perth",
     service: "Web Design",
-    metaTitle: "Web Design Perth | Websites Built to Convert — Quartz Digital",
+    metaTitle: "Web Design Perth | Quartz Digital",
     metaDescription:
       "Perth web design for businesses that want more than a brochure site. Fast, mobile-first, conversion-focused websites. Get a free quote in two minutes.",
     h1: "Web design Perth businesses use to win more work",
@@ -164,7 +184,7 @@ export const AREA_PAGES: AreaPage[] = [
     slug: "seo-perth",
     city: "Perth",
     service: "SEO",
-    metaTitle: "SEO Perth | Local Rankings That Bring In Customers — Quartz Digital",
+    metaTitle: "SEO Perth | Local Search Rankings | Quartz Digital",
     metaDescription:
       "Perth SEO services: local search, Google Business Profile optimisation, and technical SEO that get Perth businesses found first. Free SEO quote.",
     h1: "SEO that gets Perth businesses found first",
@@ -189,7 +209,7 @@ export const AREA_PAGES: AreaPage[] = [
     slug: "web-design-adelaide",
     city: "Adelaide",
     service: "Web Design",
-    metaTitle: "Web Design Adelaide | Conversion-Focused Websites — Quartz Digital",
+    metaTitle: "Web Design Adelaide | Quartz Digital",
     metaDescription:
       "Adelaide web design for local businesses and startups. Fast, professional, SEO-ready websites that turn visitors into enquiries. Free quote in two minutes.",
     h1: "Web design that helps Adelaide businesses stand out",
@@ -239,7 +259,7 @@ export const AREA_PAGES: AreaPage[] = [
     slug: "web-design-gold-coast",
     city: "Gold Coast",
     service: "Web Design",
-    metaTitle: "Web Design Gold Coast | Websites Built to Convert — Quartz Digital",
+    metaTitle: "Web Design Gold Coast | Quartz Digital",
     metaDescription:
       "Gold Coast web design for tourism, trades, and local businesses. Fast, mobile-first websites that turn visitors into bookings and enquiries. Free quote.",
     h1: "Web design built for how the Gold Coast does business",
@@ -264,7 +284,7 @@ export const AREA_PAGES: AreaPage[] = [
     slug: "seo-gold-coast",
     city: "Gold Coast",
     service: "SEO",
-    metaTitle: "SEO Gold Coast | Local and Seasonal Search Rankings — Quartz Digital",
+    metaTitle: "SEO Gold Coast | Local Search | Quartz Digital",
     metaDescription:
       "Gold Coast SEO services: local search, Google Business Profile, and technical SEO built for tourism and trade seasonality. Free SEO quote in two minutes.",
     h1: "SEO built for the Gold Coast's seasonal search patterns",
@@ -285,6 +305,14 @@ export const AREA_PAGES: AreaPage[] = [
       },
     ],
   },
+];
+
+export const AREA_PAGES: AreaPage[] = [
+  ...CITY_PAGES,
+  ...SUBURB_PAGES.map((p) => ({ ...p, region: p.region ?? "West" })),
+  ...MORE_SUBURB_PAGES,
+  ...NEW_SUBURB_PAGES,
+  ...TOPIC_PAGES,
 ];
 
 export function getArea(slug: string) {

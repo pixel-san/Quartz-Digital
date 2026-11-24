@@ -21,9 +21,9 @@ export const SERVICES: Service[] = [
   {
     slug: "web-design",
     nav: "Web Design",
-    metaTitle: "Web Design Agency Australia | Conversion-Focused Websites — Quartz Digital",
+    metaTitle: "Web Design Melbourne & Australia | Quartz Digital",
     metaDescription:
-      "Custom, conversion-focused website design for startups and businesses. SEO-ready builds that load fast, rank in Google, and turn visitors into clients. Get a free quote.",
+      "Custom websites for Melbourne and Australian businesses. Fast, SEO-ready builds that rank on Google and bring in enquiries. Free quote in 2 minutes.",
     h1: "Web design that turns visitors into clients",
     intro:
       "Your website is your best salesperson. We design and build fast, SEO-ready websites for startups and businesses — engineered to convert from day one.",
@@ -61,7 +61,7 @@ export const SERVICES: Service[] = [
   {
     slug: "seo-services",
     nav: "SEO Services",
-    metaTitle: "SEO Services Australia | Local, Technical and On-Page SEO — Quartz Digital",
+    metaTitle: "SEO Services Australia | Local and Technical | Quartz Digital",
     metaDescription:
       "On-page, technical, and local SEO systems that grow rankings month after month. Google Business Profile optimisation included. Free SEO quote in two minutes.",
     h1: "SEO systems that compound month after month",
@@ -102,7 +102,7 @@ export const SERVICES: Service[] = [
   {
     slug: "branding",
     nav: "Branding",
-    metaTitle: "Branding Agency | Logo Systems and Brand Strategy — Quartz Digital",
+    metaTitle: "Branding Agency | Logos and Brand Strategy | Quartz Digital",
     metaDescription:
       "Identity design, logo systems, and brand strategy that make your business look established and trustworthy. Book a free strategy call with Quartz Digital.",
     h1: "Branding that makes you the obvious choice",
@@ -139,7 +139,7 @@ export const SERVICES: Service[] = [
   {
     slug: "social-media-management",
     nav: "Social Media Management",
-    metaTitle: "Social Media Management | Content, Posting and Page Growth — Quartz Digital",
+    metaTitle: "Social Media Management | Quartz Digital",
     metaDescription:
       "Done-for-you social media management: content creation, posting, scheduling, and page management that keeps your brand active while you run the business.",
     h1: "Your social channels, managed and growing",
@@ -176,7 +176,7 @@ export const SERVICES: Service[] = [
   {
     slug: "social-media-marketing",
     nav: "Social Media Marketing",
-    metaTitle: "Social Media Marketing | Paid + Organic Lead Generation — Quartz Digital",
+    metaTitle: "Social Media Marketing and Lead Generation | Quartz Digital",
     metaDescription:
       "Paid and organic social strategy built to generate leads, not just likes. Systems that turn attention into enquiries for your business.",
     h1: "Social marketing that generates leads, not just likes",
@@ -213,9 +213,9 @@ export const SERVICES: Service[] = [
   {
     slug: "ai-receptionists",
     nav: "AI Receptionists",
-    metaTitle: "AI Receptionists for Business | 24/7 Call and Enquiry Handling — Quartz Digital",
+    metaTitle: "AI Receptionist for Business | Answer Every Call | Quartz Digital",
     metaDescription:
-      "AI receptionists that answer enquiries, book appointments, and capture leads for your business 24/7 — so you never miss another customer. Built by Quartz Digital.",
+      "AI receptionist that answers calls and enquiries, books appointments and captures leads 24/7, so you never miss a customer. See how it works.",
     h1: "An AI receptionist that never misses a customer",
     intro:
       "Every missed call and unanswered enquiry is a customer choosing your competitor. Our AI receptionists answer instantly, book appointments, and capture every lead — day and night.",
@@ -253,7 +253,7 @@ export const SERVICES: Service[] = [
   {
     slug: "shopify-stores",
     nav: "Shopify Stores",
-    metaTitle: "Shopify Store Development | Ecommerce Builds That Convert — Quartz Digital",
+    metaTitle: "Shopify Store Development | Quartz Digital",
     metaDescription:
       "Custom Shopify store builds with conversion optimisation baked in. Product pages, checkout flow, and SEO structure engineered to sell. Get a free quote.",
     h1: "Shopify stores engineered to sell",

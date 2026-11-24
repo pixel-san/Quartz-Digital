@@ -28,6 +28,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
       description: post.metaDescription,
       url: `${SITE.url}/blog/${post.slug}`,
       publishedTime: post.publishedAt,
+      images: ["/og.jpg"],
     },
   };
 }

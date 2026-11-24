@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   description:
     "Practical, no-fluff guides on web design, SEO, and digital growth for Australian businesses — the same thinking we use for clients.",
   alternates: { canonical: "/blog" },
+  openGraph: { title: "Blog | Growth, SEO and Web Design Insights — Quartz Digital", description:
+    "Practical, no-fluff guides on web design, SEO, and digital growth for Australian businesses — the same thinking we use for clients.", url: "/blog", images: ["/og.jpg"] },
 };
 
 function formatDate(iso: string) {

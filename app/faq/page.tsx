@@ -5,10 +5,12 @@ import { CTASection } from "@/components/CTASection";
 import { JsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "FAQ | Web Design, SEO, Pricing and Timelines — Quartz Digital",
+  title: "FAQ: Web Design, SEO, Pricing | Quartz Digital",
   description:
     "Answers to common questions about Quartz Digital's web design, SEO services, pricing process, project timelines, and website maintenance plans.",
   alternates: { canonical: "/faq" },
+  openGraph: { title: "FAQ: Web Design, SEO, Pricing | Quartz Digital", description:
+    "Answers to common questions about Quartz Digital's web design, SEO services, pricing process, project timelines, and website maintenance plans.", url: "/faq", images: ["/og.jpg"] },
 };
 
 const GROUPS: { title: string; items: FAQItem[] }[] = [

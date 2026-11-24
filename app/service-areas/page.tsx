@@ -5,13 +5,18 @@ import { CTASection } from "@/components/CTASection";
 import { AREA_PAGES } from "@/lib/areas";
 
 export const metadata: Metadata = {
-  title: "Service Areas | Web Design and SEO Across Australia — Quartz Digital",
+  title: "Service Areas: Tarneit, Werribee and Melbourne | Quartz Digital",
   description:
-    "Quartz Digital serves businesses across Melbourne, Sydney, Brisbane, Perth, Adelaide, the Gold Coast and Australia-wide — with web design and SEO systems built for local and national growth.",
+    "Web design and SEO for Tarneit, Werribee, Hoppers Crossing and Melbourne's west, plus Sydney, Brisbane, Perth, Adelaide and the Gold Coast.",
   alternates: { canonical: "/service-areas" },
+  openGraph: { title: "Service Areas: Tarneit, Werribee and Melbourne | Quartz Digital", description:
+    "Web design and SEO for Tarneit, Werribee, Hoppers Crossing and Melbourne's west, plus Sydney, Brisbane, Perth, Adelaide and the Gold Coast.", url: "/service-areas", images: ["/og.jpg"] },
 };
 
-const CITIES = Array.from(new Set(AREA_PAGES.map((a) => a.city)));
+const CITIES = Array.from(new Set(AREA_PAGES.filter((a) => !a.suburb && !a.topic).map((a) => a.city)));
+const SUBURBS = AREA_PAGES.filter((a) => a.suburb);
+const TOPICS = AREA_PAGES.filter((a) => a.topic);
+const REGIONS = ["West", "North", "Inner Melbourne", "East", "South-east"];
 
 export default function ServiceAreasPage() {
   return (
@@ -34,7 +39,7 @@ export default function ServiceAreasPage() {
         <div className="mx-auto max-w-[1100px] px-5">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {CITIES.map((city, i) => {
-              const pages = AREA_PAGES.filter((a) => a.city === city);
+              const pages = AREA_PAGES.filter((a) => a.city === city && !a.suburb && !a.topic);
               return (
                 <Reveal key={city} delay={i * 0.06}>
                   <div className="h-full rounded-3xl border border-line bg-surface p-8">
@@ -59,6 +64,47 @@ export default function ServiceAreasPage() {
               );
             })}
           </div>
+          <Reveal className="mt-12">
+            <div className="rounded-3xl border border-line bg-surface p-8">
+              <p className="text-sm font-medium uppercase tracking-[0.2em] text-quartz-bright">Melbourne suburbs</p>
+              <h2 className="mt-3 text-2xl font-bold tracking-tight text-cream">
+                Tarneit, Werribee and suburbs across Melbourne
+              </h2>
+              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
+                We are based in Hoppers Crossing, so Melbourne&apos;s west is our home patch. We also build for businesses right across Melbourne, mostly online, and can meet in person where it makes sense.
+              </p>
+              <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                {REGIONS.map((r) => (
+                  <div key={r}>
+                    <h3 className="text-sm font-semibold uppercase tracking-wider text-cream">{r}</h3>
+                    <ul className="mt-3 space-y-2">
+                      {SUBURBS.filter((s) => s.region === r).map((s) => (
+                        <li key={s.slug}>
+                          <Link href={`/${s.slug}`} className="text-sm text-neutral-300 transition-colors hover:text-quartz-bright">
+                            {s.service} {s.city}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+          <Reveal className="mt-10">
+            <div className="rounded-3xl border border-line bg-surface p-8">
+              <h2 className="text-2xl font-bold tracking-tight text-cream">More ways we can help</h2>
+              <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+                {TOPICS.map((t) => (
+                  <li key={t.slug}>
+                    <Link href={`/${t.slug}`} className="text-sm text-neutral-300 transition-colors hover:text-quartz-bright">
+                      {t.metaTitle.split("|")[0].trim()}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
           <Reveal delay={0.2} className="mt-10">
             <div className="rounded-3xl border border-line bg-surface p-8">
               <h2 className="text-xl font-semibold tracking-tight text-cream">Not in these cities?</h2>

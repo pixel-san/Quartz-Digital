@@ -14,6 +14,8 @@ export const SITE = {
   googleReviews: "https://share.google/Df4ZrwMu0v8rlP0Pv",
   // Google Business Profile — CID link (ties the website to the Maps listing)
   googleMaps: "https://maps.google.com/?cid=11394318829059073244",
+  // Google Business Profile review count (update when it changes)
+  googleReviewCount: 43,
   // FormSubmit delivers leads to this inbox without a backend.
   leadEndpoint: "https://formsubmit.co/ajax/mohidishtiaq@gmail.com",
 } as const;

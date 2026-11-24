@@ -18,13 +18,8 @@ export function ServicePage({ service }: { service: Service }) {
           "@type": "Service",
           name: service.nav,
           description: service.metaDescription,
-          provider: {
-            "@type": "LocalBusiness",
-            name: SITE.name,
-            telephone: SITE.phone,
-            url: SITE.url,
-          },
-          areaServed: ["Australia", "Worldwide"],
+          provider: { "@id": `${SITE.url}/#business` },
+          areaServed: { "@type": "Country", name: "Australia" },
           url: `${SITE.url}/${service.slug}`,
         }}
       />

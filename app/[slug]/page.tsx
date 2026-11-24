@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ServicePage } from "@/components/ServicePage";
 import { CTASection } from "@/components/CTASection";
 import { Reveal } from "@/components/Reveal";
+import { FAQAccordion } from "@/components/FAQAccordion";
 import { JsonLd } from "@/components/JsonLd";
 import { SERVICES, getService } from "@/lib/services";
 import { AREA_PAGES, getArea } from "@/lib/areas";
@@ -25,6 +26,8 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
       title: service.metaTitle,
       description: service.metaDescription,
       alternates: { canonical: `/${service.slug}` },
+      openGraph: { title: service.metaTitle, description: service.metaDescription, url: `/${service.slug}`, images: ["/og.jpg"] },
+      robots: service.comingSoon ? { index: false, follow: true } : undefined,
     };
   }
   const area = getArea(params.slug);
@@ -33,6 +36,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
       title: area.metaTitle,
       description: area.metaDescription,
       alternates: { canonical: `/${area.slug}` },
+      openGraph: { title: area.metaTitle, description: area.metaDescription, url: `/${area.slug}`, images: ["/og.jpg"] },
     };
   }
   return {};
@@ -46,7 +50,24 @@ export default function SlugPage({ params }: { params: { slug: string } }) {
   if (!area) notFound();
 
   const serviceSlug = area.service === "SEO" ? "seo-services" : "web-design";
-  const siblings = AREA_PAGES.filter((a) => a.slug !== area.slug);
+  const siblings: { slug: string; label: string }[] = area.related
+    ? area.related
+        .map((r) => {
+          const svc = getService(r);
+          if (svc) return { slug: svc.slug, label: svc.nav };
+          const a = getArea(r);
+          return a ? { slug: a.slug, label: a.topic ? a.metaTitle.split("|")[0].trim() : `${a.service} ${a.city}` } : null;
+        })
+        .filter((x): x is { slug: string; label: string } => !!x)
+    : area.suburb
+      ? (area.nearby ?? [])
+          .map((s) => getArea(s))
+          .filter((a): a is NonNullable<typeof a> => !!a)
+          .map((a) => ({ slug: a.slug, label: `${a.service} ${a.city}` }))
+      : AREA_PAGES.filter((a) => a.slug !== area.slug && !a.suburb && !a.topic).map((a) => ({
+          slug: a.slug,
+          label: `${a.service} ${a.city}`,
+        }));
 
   return (
     <>
@@ -54,13 +75,30 @@ export default function SlugPage({ params }: { params: { slug: string } }) {
         data={{
           "@context": "https://schema.org",
           "@type": "Service",
-          name: `${area.service} ${area.city}`,
+          name: area.topic ? area.h1 : `${area.service} ${area.city}`,
           description: area.metaDescription,
-          provider: { "@type": "LocalBusiness", name: SITE.name, telephone: SITE.phone, url: SITE.url },
-          areaServed: { "@type": "City", name: area.city },
+          provider: { "@id": `${SITE.url}/#business` },
+          areaServed: area.topic
+            ? { "@type": "City", name: "Melbourne" }
+            : area.suburb
+              ? { "@type": "Place", name: `${area.city}, Victoria, Australia` }
+              : { "@type": "City", name: area.city },
           url: `${SITE.url}/${area.slug}`,
         }}
       />
+      {area.faqs && (
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: area.faqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }}
+        />
+      )}
 
       <section className="relative flex min-h-[60vh] items-center pt-28 pb-16">
         <div
@@ -71,7 +109,7 @@ export default function SlugPage({ params }: { params: { slug: string } }) {
         <div className="relative mx-auto w-full max-w-[1100px] px-5">
           <Reveal>
             <p className="text-sm font-medium uppercase tracking-[0.2em] text-quartz-bright">
-              {area.service} — {area.city}
+              {area.eyebrow ?? `${area.service} — ${area.city}`}
             </p>
             <h1 className="mt-4 max-w-2xl text-4xl font-bold tracking-tighter text-cream sm:text-5xl lg:text-6xl">
               {area.h1}
@@ -87,7 +125,7 @@ export default function SlugPage({ params }: { params: { slug: string } }) {
       </section>
 
       <section className="border-t border-line py-20">
-        <div className="mx-auto grid max-w-[1100px] gap-5 px-5 md:grid-cols-3">
+        <div className={`mx-auto grid max-w-[1100px] gap-5 px-5 ${area.suburb && area.sections.length !== 3 ? "md:grid-cols-2" : "md:grid-cols-3"}`}>
           {area.sections.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.06}>
               <div className="h-full rounded-3xl border border-line bg-surface p-8">
@@ -99,16 +137,39 @@ export default function SlugPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
+      {area.extra && (
+        <section className="border-t border-line py-16">
+          <div className="mx-auto max-w-[760px] space-y-5 px-5 text-base leading-relaxed text-muted">
+            {area.extra.map((t, i) => (
+              <p key={i}>{t}</p>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {area.faqs && (
+        <section className="border-t border-line py-16">
+          <div className="mx-auto max-w-[860px] px-5">
+            <h2 className="mb-6 text-2xl font-bold tracking-tight text-cream">
+              Common questions
+            </h2>
+            <FAQAccordion items={area.faqs} />
+          </div>
+        </section>
+      )}
+
       <section className="pb-16">
         <div className="mx-auto max-w-[1100px] px-5">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted">More from Quartz Digital</p>
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted">
+            {area.related ? "Related" : area.suburb ? "Also serving nearby" : "More from Quartz Digital"}
+          </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link href={`/${serviceSlug}`} className="rounded-full border border-line px-5 py-2.5 text-sm text-neutral-300 transition-colors hover:border-quartz/50 hover:text-white">
               {area.service === "SEO" ? "SEO Services" : "Web Design"} — full details
             </Link>
             {siblings.map((s) => (
               <Link key={s.slug} href={`/${s.slug}`} className="rounded-full border border-line px-5 py-2.5 text-sm text-neutral-300 transition-colors hover:border-quartz/50 hover:text-white">
-                {s.service} {s.city}
+                {s.label}
               </Link>
             ))}
           </div>

@@ -8,12 +8,12 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { QuoteResumePrompt } from "@/components/QuoteResumePrompt";
 import { MobileCTABar } from "@/components/MobileCTABar";
 import { JsonLd } from "@/components/JsonLd";
-import { SITE, REVIEWS } from "@/lib/site";
+import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Quartz Digital | Web Design, SEO and Digital Growth — Australia",
+    default: "Quartz Digital | Web Design and SEO, Melbourne Australia",
     template: "%s",
   },
   description: SITE.description,
@@ -57,24 +57,31 @@ export default function RootLayout({
             "@type": ["LocalBusiness", "ProfessionalService"],
             "@id": `${SITE.url}/#business`,
             name: SITE.name,
+            alternateName: ["Quartz Digital Melbourne", "Quartz Digital Australia"],
             description: SITE.positioning,
             url: SITE.url,
             telephone: SITE.phone,
+            email: SITE.email,
+            founder: { "@type": "Person", "@id": `${SITE.url}/about#founder`, name: "Mohid Ishtiaq" },
             image: `${SITE.url}/logo.jpg`,
             logo: `${SITE.url}/logo.jpg`,
             address: {
               "@type": "PostalAddress",
               addressLocality: "Hoppers Crossing",
               addressRegion: "VIC",
+              postalCode: "3029",
               addressCountry: "AU",
             },
-            areaServed: ["Australia", "Worldwide"],
+            areaServed: [
+              ...["Hoppers Crossing", "Werribee", "Point Cook", "Tarneit", "Truganina", "Williams Landing", "Melbourne"].map((n) => ({ "@type": "City", name: n })),
+              { "@type": "Country", name: "Australia" },
+            ],
             hasMap: SITE.googleMaps,
-            sameAs: [SITE.instagram, SITE.googleMaps, SITE.googleReviews],
+            sameAs: [SITE.instagram, SITE.googleMaps],
             aggregateRating: {
               "@type": "AggregateRating",
               ratingValue: "5",
-              reviewCount: String(REVIEWS.length),
+              reviewCount: String(SITE.googleReviewCount),
             },
             priceRange: "$$",
           }}
@@ -89,9 +96,9 @@ export default function RootLayout({
           <>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              strategy="afterInteractive"
+              strategy="lazyOnload"
             />
-            <Script id="ga4" strategy="afterInteractive">
+            <Script id="ga4" strategy="lazyOnload">
               {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());

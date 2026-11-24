@@ -2,12 +2,15 @@ import type { Metadata } from "next";
 import { Reveal } from "@/components/Reveal";
 import { CTASection } from "@/components/CTASection";
 import { SITE } from "@/lib/site";
+import { JsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "About Quartz Digital | Performance-Driven Digital Agency",
   description:
     "Quartz Digital is a performance-driven digital agency helping businesses build, rank, and scale through high-converting websites, SEO systems, and automation.",
   alternates: { canonical: "/about" },
+  openGraph: { title: "About Quartz Digital | Performance-Driven Digital Agency", description:
+    "Quartz Digital is a performance-driven digital agency helping businesses build, rank, and scale through high-converting websites, SEO systems, and automation.", url: "/about", images: ["/og.jpg"] },
 };
 
 const VALUES = [
@@ -20,6 +23,17 @@ const VALUES = [
 export default function AboutPage() {
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "@id": `${SITE.url}/about#founder`,
+          name: "Mohid Ishtiaq",
+          jobTitle: "Founder",
+          worksFor: { "@id": `${SITE.url}/#business` },
+          email: SITE.email,
+        }}
+      />
       <section className="relative pt-36 pb-16">
         <div className="mx-auto max-w-[900px] px-5">
           <Reveal>
@@ -30,6 +44,19 @@ export default function AboutPage() {
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
               {SITE.positioning}
             </p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="py-12" id="founder">
+        <div className="mx-auto max-w-[900px] px-5">
+          <Reveal>
+            <div className="rounded-3xl border border-line bg-surface p-8 sm:p-10">
+              <h2 className="text-2xl font-bold tracking-tight text-cream">Who you will deal with</h2>
+              <p className="mt-4 leading-relaxed text-muted">
+                Quartz Digital is run by Mohid Ishtiaq from Hoppers Crossing, Melbourne. You speak directly to the person building your site, by phone, WhatsApp or email ({SITE.email}), not an account manager. We work with local businesses in Melbourne&apos;s west, including Tarneit, Werribee and Wyndham, and with clients across Australia.
+              </p>
+            </div>
           </Reveal>
         </div>
       </section>

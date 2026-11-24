@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   description:
     "Answer a few quick questions and get a personalised ballpark price for your website, Shopify store, or AI agent — instantly, with no call required.",
   alternates: { canonical: "/quote" },
+  openGraph: { title: "Get a Free Quote in 2 Minutes | Quartz Digital", description:
+    "Answer a few quick questions and get a personalised ballpark price for your website, Shopify store, or AI agent — instantly, with no call required.", url: "/quote", images: ["/og.jpg"] },
 };
 
 export default function QuotePage() {

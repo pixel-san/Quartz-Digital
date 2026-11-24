@@ -40,7 +40,7 @@ export function HeroTitle() {
     <>
       {/* Real H1: clean static text for SEO and screen readers.
           Visually hidden — the animated version below is what's shown. */}
-      <h1 className="sr-only">Build. Rank. Scale.</h1>
+      <h1 className="sr-only">Build. Rank. Scale. Web design and SEO agency in Hoppers Crossing, Melbourne</h1>
 
       {/* Decorative, animated duplicate — hidden from the accessibility
           tree and never indexed as heading text. */}

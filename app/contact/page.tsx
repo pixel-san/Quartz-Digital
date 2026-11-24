@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   description:
     "Talk to Quartz Digital about your website, SEO, or growth project. Message us, call +61 466 075 295, or chat instantly on WhatsApp.",
   alternates: { canonical: "/contact" },
+  openGraph: { title: "Contact Quartz Digital | WhatsApp, Phone or Message", description:
+    "Talk to Quartz Digital about your website, SEO, or growth project. Message us, call +61 466 075 295, or chat instantly on WhatsApp.", url: "/contact", images: ["/og.jpg"] },
 };
 
 export default function ContactPage() {
@@ -20,7 +22,7 @@ export default function ContactPage() {
             Let's talk about your project
           </h1>
           <p className="mt-5 max-w-md text-lg leading-relaxed text-muted">
-            Message us and we'll reply within one business day. In a hurry? WhatsApp is the fastest way to reach us.
+            Quartz Digital is based in Hoppers Crossing, VIC 3029, and works with businesses across Melbourne and Australia. Message us and we'll reply within one business day. You can also email {SITE.email}. In a hurry? WhatsApp is the fastest way to reach us.
           </p>
 
           <div className="mt-10 flex flex-col gap-4">

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 
 export type FAQItem = { q: string; a: string };
 
@@ -27,21 +26,14 @@ export function FAQAccordion({ items }: { items: FAQItem[] }) {
               <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
             </svg>
           </button>
-          <AnimatePresence initial={false}>
-            {open === i && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="overflow-hidden"
-              >
-                <p className="px-6 pb-5 text-sm leading-relaxed text-muted">
-                  {item.a}
-                </p>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          {/* Answer stays in the HTML (crawlable); CSS grid animates open/closed. */}
+          <div
+            className={`grid transition-[grid-template-rows] duration-300 ease-out ${open === i ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
+          >
+            <div className="overflow-hidden">
+              <p className="px-6 pb-5 text-sm leading-relaxed text-muted">{item.a}</p>
+            </div>
+          </div>
         </div>
       ))}
     </div>

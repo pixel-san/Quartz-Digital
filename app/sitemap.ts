@@ -5,7 +5,8 @@ import { BLOG_POSTS } from "@/lib/blog";
 import { SITE } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  // Last meaningful content update; bump when site content changes.
+  const now = new Date("2026-11-23");
 
   const staticPages = [
     { path: "", priority: 1.0 },
@@ -26,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       priority: p.priority,
     })),
-    ...SERVICES.map((s) => ({
+    ...SERVICES.filter((s) => !s.comingSoon).map((s) => ({
       url: `${SITE.url}/${s.slug}`,
       lastModified: now,
       priority: 0.9,

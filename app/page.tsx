@@ -9,7 +9,7 @@ import { SERVICES } from "@/lib/services";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Quartz Digital | Web Design, SEO and Digital Growth — Australia",
+  title: "Quartz Digital | Web Design and SEO, Melbourne Australia",
   description:
     "Quartz Digital builds websites, SEO systems, and digital growth engines for businesses worldwide. Conversion-first design, SEO from day one. Get a free quote.",
   alternates: { canonical: "/" },
@@ -55,11 +55,14 @@ export default function HomePage() {
           }}
         />
         <div className="relative z-10 mx-auto w-full max-w-[1100px] px-5 pt-28 pb-16 text-center">
+          <p className="mb-6 text-sm font-medium uppercase tracking-[0.2em] text-quartz-bright">
+            Web design &amp; SEO agency · Hoppers Crossing, Melbourne
+          </p>
           <HeroTitle />
           {/* Above-the-fold copy is plain server-rendered markup (no opacity-0
               entrance) so it paints immediately and counts as LCP early. */}
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">
-            {SITE.description}
+            Websites, local SEO and digital growth for businesses in Melbourne&apos;s west and across Australia. Based in Hoppers Crossing, VIC.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
